@@ -5,7 +5,7 @@ we can iterate over it here with #each--}}
  
   <div>
     <h3>{{bookToDelete.title}}</h3>
-    <p>By: {{bookToDelete.author}}</p> {{!-- additional book property --}}
+    <p>By: {{bookToDelete.author.name}}</p> {{!-- additional book property --}}
     <a href="/books/{{bookToDelete._id}}">See details</a> {{!-- link that points to the details page --}}
     <a href="/books/{{bookToDelete._id}}/edit">Edit</a> {{!-- link to redirect to the edit form for each specific book  --}}
  

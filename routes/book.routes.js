@@ -2,13 +2,18 @@ const express = require('express');
 const router = express.Router();
 
 const Book = require('../models/Book.model');
+const Author = require('../models/Author.model');
+
+
 
 // GET /books 
 router.get("/books", (req, res, next) => {
 
     Book.find()
+        .populate("author")
         .then((booksFromDB) =>{
             //console.log(booksFromDB)
+            
 
             const data = {
                 books: booksFromDB
@@ -55,6 +60,7 @@ router.get("/books/:bookId", (req, res, next) => {
     // console.log(id)
 
     Book.findById(id)
+        .populate("author")
         .then( data => {
             res.render("books/book-details", data)
             //console.log({data})
@@ -68,6 +74,7 @@ router.get("/books/:bookId", (req, res, next) => {
 router.get("/books/:bookId/edit", (req, res, next) => {
     const bookId = req.params.bookId;
            Book.findById(bookId)
+             .populate("author")
              .then((bookToEdit) => {
                 res.render("books/book-edit", {book: bookToEdit})
             })
@@ -102,6 +109,7 @@ router.get("/books/:bookId/delete", (req, res, next) => {
     const id = req.params.bookId;
 
     Book.findById(id)
+        .populate("author")
         .then((bookToDelete) => {
             res.render("books/book-delete", {bookToDelete})
         })

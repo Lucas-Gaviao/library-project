@@ -38,7 +38,28 @@ const authors = [
         name: "J.K. Rowling",
         age: 50,
         country: "UK"
-    }
+    },
+    {
+        name: "Margaret Mitchell",
+        age: 60,
+        country: "UK"
+    },
+    {
+        name: "John Green",
+        age: 15,
+        country: "UK"
+    },
+    {
+        name: "George Orwell",
+        age: 20,
+        country: "UK"
+    },
+    {
+        name: "C.S. Lewis",
+        age: 15,
+        country: "AUS"
+    } 
+
 ];
 
 
@@ -54,8 +75,8 @@ async function seedData() {
 
 
         /* DELETE EXISTING DATA */
-        // const deletedBooks = await Book.deleteMany({}); //WARNING: this will delete all books in your DB !!
-        // const deletedAuthors = await Author.deleteMany({}); //WARNING: this will delete all authors in your DB !!
+             const deletedBooks = await Book.deleteMany({}); //WARNING: this will delete all books in your DB !!
+             const deletedAuthors = await Author.deleteMany({}); //WARNING: this will delete all authors in your DB !!
         // console.log(deletedBooks, deletedAuthors);
 
 
