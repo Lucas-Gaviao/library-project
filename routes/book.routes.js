@@ -29,9 +29,15 @@ router.get("/books", (req, res, next) => {
 
 // GET /books/create
 router.get("/books/create", (req, res, next) => {
-    res.render("books/book-create")
-
-})
+    Author.find()
+    .then( authorsFromDB => {
+        res.render("books/book-create", {authorsArr: authorsFromDB});
+    })
+    .catch( e => {
+        console.log("error displaying book create form", e);
+        next(e);
+    });
+});
 
 // POST /books/create
 router.post("/books/create", (req, res, next) => {
@@ -71,18 +77,20 @@ router.get("/books/:bookId", (req, res, next) => {
         })
 })
 
-router.get("/books/:bookId/edit", (req, res, next) => {
-    const bookId = req.params.bookId;
-           Book.findById(bookId)
-             .populate("author")
-             .then((bookToEdit) => {
-                res.render("books/book-edit", {book: bookToEdit})
-            })
-             .catch((err) => {
-                console.log("Ops, something wrong updating the book", err);
-                next(err);
-            }) 
-})
+router.get('/books/:bookId/edit', async (req, res, next) => {
+    const { bookId } = req.params;
+
+    try {
+        const authors = await Author.find();
+        const bookDetails = await Book.findById(bookId);
+
+        res.render('books/book-edit.hbs', { book: bookDetails, authors: authors });
+
+    } catch (e) {
+        next(e);
+    }
+
+});
 
 router.post("/books/:bookId/edit", (req, res, next) => {
     const id = req.params.bookId
