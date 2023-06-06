@@ -1,0 +1,15 @@
+- Goal: We're going to create an app for a library (we'll have a CRUD functionality for books)
+
+Model > Routes > Views
+
+[x] READ list of Books - create a route: - Book.find () - create view: "books-list.hbs"
+
+[x] READ details of a book - create a new route: GET "/book/:bookId" - req.params.bookId - Book.findById() - create a view: "books/book-details.hbs"
+
+[x] CREATE a book - GET /books/create ---> Display the form - view with a form - POST /books/create ---> Process the form - create a new route - req.body
+-Book.create()
+
+[ ] UPDATE a book - GET /books/:bookId/edit ---> display form
+Book.findById(id) - POST /books/:bookId/edit ---> process form
+
+[ ] DELETE a book
