@@ -31,6 +31,8 @@ app.use("/", require("./routes/book.routes"));  // ---> mounting the path on top
 
 app.use("/", require("./routes/authors.routes")); // ---> mounting the path on top of the root. ex: localhost:3000
 
+app.use("/", require("./routes/auth.routes")); // ---> mounting the path on top of the root. ex: localhost:3000
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 

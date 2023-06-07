@@ -105,7 +105,7 @@ router.post("/books/:bookId/edit", (req, res, next) => {
     Book.findByIdAndUpdate(id, updateBook, { new: true })
         .then((updatedBook) => {
             //console.log(updatedBook)
-            res.redirect(`books/${updatedBook.id}`)
+            res.redirect(`/books`)
         })
         .catch((err) => {
             console.log("Ops, something wrong updating the book", err);

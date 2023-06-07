@@ -9,7 +9,18 @@ Model > Routes > Views
 [x] CREATE a book - GET /books/create ---> Display the form - view with a form - POST /books/create ---> Process the form - create a new route - req.body
 -Book.create()
 
-[ ] UPDATE a book - GET /books/:bookId/edit ---> display form
+[x] UPDATE a book - GET /books/:bookId/edit ---> display form
 Book.findById(id) - POST /books/:bookId/edit ---> process form
 
-[ ] DELETE a book
+[x] DELETE a book
+
+## Goal: Allow users to create an account
+
+    - GET / signup (Display Form)
+        - view `auth/signup.hbs`
+        -form (email + pw) --> POST
+
+    - POST /signup (process form)
+        - req.body
+        - generate salt + hash
+        - User.create()
