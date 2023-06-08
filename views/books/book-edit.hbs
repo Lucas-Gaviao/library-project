@@ -1,9 +1,9 @@
-<h2>Edit a book</h2>
+<h2>Edit the book: {{book.title}}</h2>
 
-<form method="post" action="/books/{{book._id}}/edit">
-  <label> Title:
-    <input type="text" name="title" value="{{book.title}}" />
-  </label>
+<form method="POST" action="/books/{{book._id}}/edit">
+    <label> Title:
+        <input type="text" name="title" value="{{book.title}}" />
+    </label>
 
     <label> Author:
         <select name="author">
@@ -15,13 +15,13 @@
         </select>
     </label>
 
-  <label> Description:
-    <textarea name="description" cols="30" rows="4">{{book.description}}</textarea>
-  </label>
+    <label> Description:
+        <textarea name="description" cols="30" rows="4">{{book.description}}</textarea>
+    </label>
 
-  <label> Rate:
-    <input type="number" name="rating" min="1" max="10" value="{{book.rating}}"/>
-  </label>
+    <label> Rate:
+        <input type="number" name="rating" min="1" max="10" value="{{book.rating}}" />
+    </label>
 
-  <button type="submit" > Edit </button>
+    <button>Save changes</button>
 </form>
