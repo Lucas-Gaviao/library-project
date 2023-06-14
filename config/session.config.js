@@ -14,7 +14,7 @@ module.exports = app => {
     // use session
     app.use(
         session({
-            secret: process.env.SESS_SECRET,
+            secret: process.env.SESS_SECRET || "hyper secret secret",
             resave: true,
             saveUninitialized: false,
             cookie: {
